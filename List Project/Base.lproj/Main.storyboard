@@ -133,6 +133,9 @@
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="DDP-zM-chy">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="115"/>
+                                                    <connections>
+                                                        <action selector="datePickerChanged:" destination="Q0O-pg-SeY" eventType="primaryActionTriggered" id="q5P-1g-e8B"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
