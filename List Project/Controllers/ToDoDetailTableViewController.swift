@@ -1,5 +1,5 @@
 //
-//  ToDoTableViewController.swift
+//  ToDoDetailTableViewController.swift
 //  List Project
 //
 //  Created by Jacob Davis on 11/14/23.
@@ -7,59 +7,84 @@
 
 import UIKit
 
-class ToDoTableViewController: UITableViewController {
+class ToDoDetailTableViewController: UITableViewController {
 
-    var toDos = [ToDo]()
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var isCompleteButton: UIButton!
+    @IBOutlet weak var dueDateLabel: UILabel!
+    @IBOutlet weak var dueDateDatePicker: UIDatePicker!
+    @IBOutlet weak var notesTextView: UITextView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let savedToDos = ToDo.loadToDos() {
-            toDos = savedToDos
-        } else {
-            toDos = ToDo.loadSampleToDos()
-        }
-        
-        navigationItem.leftBarButtonItem = editButtonItem
+        updateSaveButtonState()
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    func updateSaveButtonState() {
+        let shouldEnableSaveButton = titleTextField.text?.isEmpty == false
+        saveButton.isEnabled = shouldEnableSaveButton
+    }
+    
+    @IBAction func isCompleteButtonTapped(_ sender: UIButton) {
+        isCompleteButton.isSelected.toggle()
+    }
+    
+    @IBAction func textEditingChanged(_ sender: Any) {
+        updateSaveButtonState()
+    }
+    
+    @IBAction func returnPressed(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
     // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 3
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return toDos.count
+        return 1
     }
 
-
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCellIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        let toDo = toDos[indexPath.row]
         // Configure the cell...
-        var content = cell.defaultContentConfiguration()
-        content.text = toDo.title
-        cell.contentConfiguration = content
+
         return cell
     }
-    
+    */
 
-    
+    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
+    */
 
+    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            toDos.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
+    */
 
     /*
     // Override to support rearranging the table view.
