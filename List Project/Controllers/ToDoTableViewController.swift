@@ -24,16 +24,18 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
         navigationItem.leftBarButtonItem = editButtonItem
     }
 
-    // MARK: - Table view data source
-    
     func checkmarkTapped(sender: ToDoTableViewCell) {
         if let indexPath = tableView.indexPath(for: sender) {
             var toDo = toDos[indexPath.row]
             toDo.isComplete.toggle()
             toDos[indexPath.row] = toDo
             tableView.reloadRows(at: [indexPath], with: .automatic)
+            ToDo.saveToDos(toDos)
         }
     }
+    
+    // MARK: - Table view data source
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -67,6 +69,7 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
             // Delete the row from the data source
             toDos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            ToDo.saveToDos(toDos)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -108,6 +111,7 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
+        ToDo.saveToDos(toDos)
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
