@@ -16,13 +16,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCellIdentifier" id="bOr-Bp-Vv8">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCellIdentifier" id="bOr-Bp-Vv8" customClass="ToDoTableViewCell" customModule="List_Project" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bOr-Bp-Vv8" id="f84-ep-Vxi">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQa-F9-hWp">
+                                            <rect key="frame" x="20" y="7.3333333333333321" width="32" height="28.999999999999996"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="32" id="vPy-L8-ze9"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Button" image="checkmark.circle" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                            </state>
+                                            <state key="selected" image="checkmark.circle.fill" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="completeButtonTapped:" destination="bOr-Bp-Vv8" eventType="touchUpInside" id="8c3-Cc-uJH"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcP-6Q-6v4">
+                                            <rect key="frame" x="62" y="11.333333333333336" width="311" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="cQa-F9-hWp" firstAttribute="leading" secondItem="f84-ep-Vxi" secondAttribute="leadingMargin" id="P7O-HT-1ju"/>
+                                        <constraint firstItem="cQa-F9-hWp" firstAttribute="centerY" secondItem="f84-ep-Vxi" secondAttribute="centerY" id="ce7-xJ-kX7"/>
+                                        <constraint firstItem="fcP-6Q-6v4" firstAttribute="leading" secondItem="cQa-F9-hWp" secondAttribute="trailing" constant="10" id="cq3-uv-RX9"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="fcP-6Q-6v4" secondAttribute="trailing" id="udl-Cd-aaR"/>
+                                        <constraint firstItem="fcP-6Q-6v4" firstAttribute="centerY" secondItem="f84-ep-Vxi" secondAttribute="centerY" id="zjX-4d-qYE"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="isCompleteButton" destination="cQa-F9-hWp" id="gdf-8v-p9m"/>
+                                    <outlet property="titleLabel" destination="fcP-6Q-6v4" id="TDl-4O-UM5"/>
+                                    <segue destination="c5i-jo-LI5" kind="presentation" identifier="editToDoSegue" id="hC6-EZ-mcG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -216,7 +253,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Q0O-pg-SeY" kind="relationship" relationship="rootViewController" id="siF-on-2MQ"/>
+                        <segue destination="Q0O-pg-SeY" kind="relationship" relationship="rootViewController" destinationCreationSelector="editToDo:sender:" id="siF-on-2MQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RnW-wC-TdT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -242,6 +279,9 @@
             <point key="canvasLocation" x="133.58778625954199" y="18.30985915492958"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hC6-EZ-mcG"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.circle" catalog="system" width="128" height="123"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>

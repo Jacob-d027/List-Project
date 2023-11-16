@@ -15,6 +15,7 @@
 		F2657F652B03CE1E0075CA36 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2657F642B03CE1E0075CA36 /* ToDo.swift */; };
 		F2657F672B03CF200075CA36 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2657F662B03CF200075CA36 /* ToDoTableViewController.swift */; };
 		F2657F6B2B048A1D0075CA36 /* ToDoDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2657F6A2B048A1D0075CA36 /* ToDoDetailTableViewController.swift */; };
+		F26C31702B0597250041C33E /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26C316F2B0597250041C33E /* ToDoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F2657F642B03CE1E0075CA36 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		F2657F662B03CF200075CA36 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		F2657F6A2B048A1D0075CA36 /* ToDoDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDetailTableViewController.swift; sourceTree = "<group>"; };
+		F26C316F2B0597250041C33E /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		F2657F692B03CFDC0075CA36 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F26C316F2B0597250041C33E /* ToDoTableViewCell.swift */,
 				F2657F642B03CE1E0075CA36 /* ToDo.swift */,
 			);
 			path = Models;
@@ -171,6 +174,7 @@
 				F2657F652B03CE1E0075CA36 /* ToDo.swift in Sources */,
 				F2657F6B2B048A1D0075CA36 /* ToDoDetailTableViewController.swift in Sources */,
 				F2657F672B03CF200075CA36 /* ToDoTableViewController.swift in Sources */,
+				F26C31702B0597250041C33E /* ToDoTableViewCell.swift in Sources */,
 				F2657F512B03C8380075CA36 /* AppDelegate.swift in Sources */,
 				F2657F532B03C8380075CA36 /* SceneDelegate.swift in Sources */,
 			);
